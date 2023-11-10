@@ -7,6 +7,7 @@ import UIKit
 public class WaveformImageView: UIImageView {
     private let waveformImageDrawer: WaveformImageDrawer
 
+    var completion: ()->()?
     public var configuration: Waveform.Configuration {
         didSet { updateWaveform() }
     }
@@ -52,6 +53,7 @@ private extension WaveformImageView {
                 )
 
                 await MainActor.run {
+                    self.completion?()
                     self.image = image
                 }
             } catch {
