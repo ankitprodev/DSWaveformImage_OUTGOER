@@ -7,7 +7,7 @@ import UIKit
 public class WaveformImageView: UIImageView {
     private let waveformImageDrawer: WaveformImageDrawer
 
-    public var completion: ()->()?
+    public var completion: (()->())?
     public var configuration: Waveform.Configuration {
         didSet { updateWaveform() }
     }
@@ -16,6 +16,8 @@ public class WaveformImageView: UIImageView {
         didSet { updateWaveform() }
     }
 
+    public init() {}
+    
     override public init(frame: CGRect) {
         configuration = Waveform.Configuration(size: frame.size)
         waveformImageDrawer = WaveformImageDrawer()
