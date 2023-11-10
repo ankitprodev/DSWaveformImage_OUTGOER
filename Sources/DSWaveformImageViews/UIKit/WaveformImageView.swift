@@ -15,8 +15,6 @@ public class WaveformImageView: UIImageView {
     public var waveformAudioURL: URL? {
         didSet { updateWaveform() }
     }
-
-    public init() {}
     
     override public init(frame: CGRect) {
         configuration = Waveform.Configuration(size: frame.size)
