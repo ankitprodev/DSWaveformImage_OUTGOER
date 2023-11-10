@@ -7,7 +7,7 @@ import UIKit
 public class WaveformImageView: UIImageView {
     private let waveformImageDrawer: WaveformImageDrawer
 
-    public var completion: (()->())?
+    public var completion: ((Bool)->())?
     public var configuration: Waveform.Configuration {
         didSet { updateWaveform() }
     }
@@ -53,12 +53,13 @@ private extension WaveformImageView {
                 )
 
                 await MainActor.run {
-                    self.completion?()
+                    self.completion?(true)
                     self.image = image
                 }
             } catch {
                 print("Error occurred during waveform image creation:")
                 print(error)
+                self.completion?(false)
             }
         }
     }
