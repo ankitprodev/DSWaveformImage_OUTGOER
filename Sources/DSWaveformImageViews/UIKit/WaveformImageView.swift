@@ -27,7 +27,7 @@ public class WaveformImageView: UIImageView {
 
     override public func layoutSubviews() {
         super.layoutSubviews()
-        updateWaveform()
+        //updateWaveform()
     }
 
     /// Clears the audio data, emptying the waveform view.
@@ -51,7 +51,7 @@ private extension WaveformImageView {
 
                 await MainActor.run {
                     self.completion?(true)
-                    self.image = image
+                    //self.image = image
                 }
             } catch {
                 print("Error occurred during waveform image creation:")
