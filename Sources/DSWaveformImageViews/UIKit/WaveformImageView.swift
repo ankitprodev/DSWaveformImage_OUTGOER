@@ -8,13 +8,10 @@ public class WaveformImageView: UIImageView {
     private let waveformImageDrawer: WaveformImageDrawer
 
     public var completion: ((Bool)->())?
-    public var configuration: Waveform.Configuration {
-        didSet { updateWaveform() }
-    }
+    public var configuration: Waveform.Configuration
+    
 
-    public var waveformAudioURL: URL? {
-        didSet { updateWaveform() }
-    }
+    public var waveformAudioURL: URL?
     
     override public init(frame: CGRect) {
         configuration = Waveform.Configuration(size: frame.size)
